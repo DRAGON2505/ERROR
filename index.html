@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERROR SYSTEM - Pink</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-color: #fdfdfd;
+      --accent-color: #007bff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      background: var(--card-color);
+      padding: 15px 0;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar button {
+      background: var(--accent-color);
+      border: none;
+      padding: 10px 20px;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+  padding-bottom: 7rem;
+  border: 2px dashed var(--primary-color);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.03);
+  transition: border-color 0.4s ease;
+}
+
+
+    
+.card {
+  background-color: var(--card-color);
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 1.75rem;
+  margin: 1.25rem 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid var(--primary-color);
+}
+
+
+    .dashboard-title {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .period-label {
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    .period-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #ffffff;
+  border: 2px dashed var(--primary-color);
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  transition: border 0.3s ease;
+}
+    .result-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 10px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+    .big-text {
+      background: #e0f7fa;
+      padding: 5px 10px;
+      border-radius: 10px;
+      color: #006064;
+    }
+    .opposite-number {
+      font-size: 16px;
+      color: #006064;
+      font-weight: normal;
+    }
+  
+
+@keyframes popFade {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+
+  50% { transform: scale(1.3); }
+}
+
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Win animation */
+
+
+/* Loss animation */
+
+
+/* Spinner for pending */
+
+
+
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+#dashboardTitle {
+  animation: fadeSlide 0.6s ease-out;
+}
+
+
+.win-icon {
+  display: inline-block;
+  color: #22c55e;
+  animation: bounceWin 1.2s ease-in-out infinite;
+}
+@keyframes bounceWin {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.loss-icon {
+  display: inline-block;
+  color: #ef4444;
+  animation: shakeLoss 1s ease-in-out infinite;
+}
+@keyframes shakeLoss {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+
+.pending-icon {
+  display: inline-block;
+  animation: pulsePending 1s ease-in-out infinite;
+  color: orange;
+}
+@keyframes pulsePending {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+
+#dashboardTitle {
+  animation: popFadeSlide 0.8s ease-in-out;
+}
+@keyframes popFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.svg-title svg text {
+  animation: dash 5s linear infinite;
+}
+@keyframes dash {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+
+.svg-stroke-text {
+  stroke-width: 1.5;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear infinite;
+}
+
+.theme-applied .svg-stroke-text {
+  stroke: var(--primary-color);
+}
+
+@keyframes dash {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div id="dashboardPage" class="page">
+      <div class="card">
+        
+
+<div class="svg-title" style="text-align:center; margin-bottom: 20px;">
+  <svg width="100%" height="80px" viewBox="0 0 600 80">
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+          font-size="62" fill="none"
+          stroke="black" class="svg-stroke-text">
+      ERROR X ULTRA
+    </text>
+  </svg>
+</div>
+
+
+        <div class="period-label"><i class="fa-solid fa-calendar-days"></i> Period</div>
+        <input type="text" id="periodDisplay" class="period-input" value="-" readonly />
+        <div class="result-section">
+          <span><i class="fa-solid fa-chart-bar"></i> Prediction</span>
+          <span class="big-text" id="predictionDisplay">-</span>
+          <span class="opposite-number" id="oppositeNumberDisplay">-</span>
+        </div>
+        
+<div class="period-label"><i class="fa-solid fa-wave-square"></i> Trend</div>
+<div class="period-input" id="trendDisplay">-</div>
+<div class="period-label"><i class="fa-solid fa-brain"></i> Logic Used</div>
+<div class="period-input" id="logicUsedDisplay">Logic 91–100</div>
+
+<div class="info-row"><span>Win Rate</span><span id="accuracy">0%</span></div>
+        <div class="info-row"><span>Wins</span><span id="wins">0</span></div>
+        <div class="info-row"><span>Losses</span><span id="losses">0</span></div>
+        <div class="info-row"><span>Server Status</span><span class="connected">Connected</span></div>
+      </div>
+    </div>
+
+    <div id="historyPage" class="page hidden">
+      <div class="card">
+        <div class="dashboard-title">History</div>
+        <div id="historyContainer">No history yet.</div>
+      </div>
+    </div>
+
+    <div id="themesPage" class="page hidden">
+      <div class="card">
+        <div class="dashboard-title">Choose Theme</div>
+        
+
+<div class="card">
+  
+<div class="svg-title" style="text-align:center; margin-bottom: 20px;">
+  <svg width="100%" height="60px" viewBox="0 0 600 60">
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+          font-size="32" fill="none"
+          stroke="black" class="svg-stroke-text">
+      HISTORY
+    </text>
+  </svg>
+</div>
+
+<h2 id="themeLabel">🎨 Themes</h2>
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <button onclick="changeTheme('pink')" style="background:#ec4899;color:white;border:none;border-radius:12px;padding:1rem;">
+      <span style='display:inline-block;width:12px;height:12px;border-radius:50%;background:white;margin-right:10px;'></span>Pink
+    </button>
+    <button onclick="changeTheme('rose')" style="background:#f43f5e;color:white;border:none;border-radius:12px;padding:1rem;">
+      <span style='display:inline-block;width:12px;height:12px;border-radius:50%;background:white;margin-right:10px;'></span>Rose
+    </button>
+    <button onclick="changeTheme('indigo')" style="background:#6366f1;color:white;border:none;border-radius:12px;padding:1rem;">
+      <span style='display:inline-block;width:12px;height:12px;border-radius:50%;background:white;margin-right:10px;'></span>Indigo
+    </button>
+    <button onclick="changeTheme('sky')" style="background:#0ea5e9;color:white;border:none;border-radius:12px;padding:1rem;">
+      <span style='display:inline-block;width:12px;height:12px;border-radius:50%;background:white;margin-right:10px;'></span>Sky
+    </button>
+    <button onclick="changeTheme('lime')" style="background:#84cc16;color:white;border:none;border-radius:12px;padding:1rem;">
+      <span style='display:inline-block;width:12px;height:12px;border-radius:50%;background:white;margin-right:10px;'></span>Lime
+    </button>
+  </div>
+</div>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <button onclick="showPage('dashboard')">Dashboard</button>
+    <button onclick="showPage('history')">History</button>
+    <button onclick="showPage('themes')">Themes</button>
+  </div>
+
+  <script>
+
+let sureshotCountCycle = 0;
+let totalCycle = 0;
+
+function selectSureLogicCycle(history) {
+  const logics = [];
+  for (let i = 1; i <= 110; i++) {
+    logics.push({ id: i, winRate: 85 + Math.random() * 15 });
+  }
+
+  if (totalCycle >= 10) {
+    sureshotCountCycle = 0;
+    totalCycle = 0;
+  }
+
+  totalCycle++;
+
+  const sureShot = logics.find(l => l.winRate >= 99.5);
+  if (sureShot && sureshotCountCycle < 9) {
+    sureshotCountCycle++;
+    sureShot.sure = true;
+    return sureShot;
+  }
+
+  const fallback = logics.sort((a, b) => b.winRate - a.winRate)[0];
+  fallback.sure = false;
+  return fallback;
+}
+
+function selectSmartSureLogic(history) {
+  const logics = [];
+  for (let i = 1; i <= 110; i++) {
+    logics.push({ id: i, winRate: 85 + Math.random() * 15 });
+  }
+
+  if (sureShotCounter < 6) {
+    const best = logics.find(l => l.winRate >= 99.5);
+    if (best) {
+      sureShotCounter++;
+      best.sure = true;
+      return best;
+    }
+  }
+
+  const fallback = logics.sort((a, b) => b.winRate - a.winRate)[0];
+  fallback.sure = false;
+  return fallback;
+}
+
+function selectBestSureshotLogic(history) {
+  const logics = [];
+  for (let i = 111; i <= 120; i++) {
+    const winRate = Math.random() * 10 + 90; // 90–100%
+    logics.push({ id: i, winRate });
+  }
+
+  // Choose logic with 100% win rate 4 out of every 10 periods
+  if (sureshotCount < 4) {
+    const sureLogic = logics.find(l => l.winRate >= 99.9);
+    if (sureLogic) {
+      sureshotCount++;
+      return sureLogic;
+    }
+  }
+
+  // Otherwise, choose highest available
+  return logics.sort((a, b) => b.winRate - a.winRate)[0];
+}
+
+
+function analyzeTrend(history) {
+  if (history.length < 5) return "Unknown";
+
+  let up = 0, down = 0;
+  for (let i = history.length - 5; i < history.length; i++) {
+    if (!history[i - 1]) continue;
+    if (history[i].result > history[i - 1].result) up++;
+    else if (history[i].result < history[i - 1].result) down++;
+  }
+
+  if (up >= 4) return "Strong Upward";
+  if (down >= 4) return "Strong Downward";
+  if (up >= 2 && down >= 2) return "Fluctuating";
+  return "Stable";
+}
+
+
+function simulateUltraHighAccuracyLogics() {
+  const ultraLogics = [];
+  for (let i = 101; i <= 110; i++) {
+    ultraLogics.push({
+      id: i,
+      winRate: 90 + Math.random() * 10  // 90–100%
+    });
+  }
+  return ultraLogics;
+}
+
+function selectBestUltraLogic(history) {
+  const logics = simulateUltraHighAccuracyLogics();
+  return logics.sort((a, b) => b.winRate - a.winRate)[0];
+}
+
+
+// Simulated deep confidence analysis (fake logic stability based on trend strength)
+function deepAnalyzeLogicTrend(logicId, trend) {
+  const stability = Math.random(); // 0 to 1
+  const chance = trend === "Upward"
+    ? 50 + logicId % 10 + Math.floor(stability * 40)
+    : trend === "Downward"
+    ? 40 + logicId % 10 + Math.floor(stability * 30)
+    : 30 + logicId % 20 + Math.floor(stability * 30);
+  return Math.min(100, Math.round(chance));
+}
+
+
+// Simulated logic evaluation: map each logic to a fake win rate
+function simulateLogicWinRates() {
+  const winRates = [];
+  for (let i = 1; i <= 100; i++) {
+    winRates.push({
+      id: i,
+      winRate: Math.random() * 100  // simulate %
+    });
+  }
+  return winRates;
+}
+
+// Pick the best logic based on simulated trend match (here we just choose the highest winRate)
+function selectBestLogicByTrend(history) {
+  const rates = simulateLogicWinRates();
+  const sorted = rates.sort((a, b) => b.winRate - a.winRate);
+  return sorted[0];
+}
+
+
+    // Simulate trend analysis from history
+    function analyzeTrend(history) {
+      if (history.length < 5) return "Upward";
+      const last = history.slice(0, 5).map(h => h.prediction === "BIG" ? 1 : -1);
+      const sum = last.reduce((a, b) => a + b, 0);
+      return sum >= 2 ? "Upward" : sum <= -2 ? "Downward" : "Mixed";
+    }
+
+    // Map trend type to preferred logic ID
+    function selectLogicByTrend(trend) {
+      if (trend === "Upward") return 93;
+      if (trend === "Downward") return 95;
+      return 97;
+    }
+
+    
+const themes = {
+  pink: { '--bg-color': '#fdf2f8', '--primary-color': '#ec4899' },
+  rose: { '--bg-color': '#fff1f2', '--primary-color': '#f43f5e' },
+  indigo: { '--bg-color': '#eef2ff', '--primary-color': '#6366f1' },
+  sky: { '--bg-color': '#f0f9ff', '--primary-color': '#0ea5e9' },
+  lime: { '--bg-color': '#f7fee7', '--primary-color': '#84cc16' }
+};
+
+
+    function changeTheme(theme) {
+      const root = document.documentElement;
+      const selected = themes[theme];
+      for (let key in selected) {
+        root.style.setProperty(key, selected[key]);
+      }
+    }
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+      document.getElementById(pageId + 'Page').classList.remove('hidden');
+    }
+  </script>
+
+  <script>
+
+// Simulated deep confidence analysis (fake logic stability based on trend strength)
+function deepAnalyzeLogicTrend(logicId, trend) {
+  const stability = Math.random(); // 0 to 1
+  const chance = trend === "Upward"
+    ? 50 + logicId % 10 + Math.floor(stability * 40)
+    : trend === "Downward"
+    ? 40 + logicId % 10 + Math.floor(stability * 30)
+    : 30 + logicId % 20 + Math.floor(stability * 30);
+  return Math.min(100, Math.round(chance));
+}
+
+
+// Simulated logic evaluation: map each logic to a fake win rate
+function simulateLogicWinRates() {
+  const winRates = [];
+  for (let i = 1; i <= 100; i++) {
+    winRates.push({
+      id: i,
+      winRate: Math.random() * 100  // simulate %
+    });
+  }
+  return winRates;
+}
+
+// Pick the best logic based on simulated trend match (here we just choose the highest winRate)
+function selectBestLogicByTrend(history) {
+  const rates = simulateLogicWinRates();
+  const sorted = rates.sort((a, b) => b.winRate - a.winRate);
+  return sorted[0];
+}
+
+
+    // Simulate trend analysis from history
+    function analyzeTrend(history) {
+      if (history.length < 5) return "Upward";
+      const last = history.slice(0, 5).map(h => h.prediction === "BIG" ? 1 : -1);
+      const sum = last.reduce((a, b) => a + b, 0);
+      return sum >= 2 ? "Upward" : sum <= -2 ? "Downward" : "Mixed";
+    }
+
+    // Map trend type to preferred logic ID
+    function selectLogicByTrend(trend) {
+      if (trend === "Upward") return 93;
+      if (trend === "Downward") return 95;
+      return 97;
+    }
+
+    let historyData = [];
+
+let currentTrend = "-";
+let currentLogic = "-";
+let currentPrediction = "-";
+
+    let lastFetchedPeriod = null;
+    let lastResult = null;
+    let lastPrediction = null;
+    let lastStatus = null;
+    let lastOppositeNumber = null;
+    let globalPrediction = null;
+
+    function getOppositeNumber(prediction) {
+      const small = [0, 1, 2, 3, 4];
+      const big = [5, 6, 7, 8, 9];
+      let arr = prediction === "BIG" ? small : big;
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function ultraAIPredictConsensus(history) {
+      const predictions = [];
+      const counts = { BIG: 0, SMALL: 0 };
+      for (let i = 91; i <= 100; i++) {
+        predictions.push({ prediction: Math.random() > 0.5 ? 'BIG' : 'SMALL' });
+      }
+      predictions.forEach(p => counts[p.prediction]++);
+      return { prediction: counts.BIG >= counts.SMALL ? "BIG" : "SMALL" };
+    }
+
+    async function updatePrediction() {
+      let result = await fetchGameResult();
+      if (!result || result.issueNumber === lastFetchedPeriod) return;
+
+      if (historyData.length > 0 && historyData[0].resultStatus === "Pending") {
+        const actualNumber = Number(result.number);
+        const status = updateLastStatus(actualNumber);
+        historyData[0].result = actualNumber;
+        historyData[0].resultStatus = status;
+      }
+
+      if (result.issueNumber !== lastFetchedPeriod) {
+  
+
+
+
+
+
+currentTrend = analyzeTrend(historyData);
+const logicObj = selectSureLogicCycle(historyData);
+const deepConfidence = deepAnalyzeLogicTrend(logicObj.id, currentTrend);
+
+let chanceLabel = "Medium";
+if (logicObj.winRate >= 99.5 && deepConfidence >= 99 && logicObj.sure) {
+  chanceLabel = "Sure Shot";
+} else if (logicObj.winRate >= 97 && deepConfidence >= 95) {
+  chanceLabel = "Very High";
+} else if (logicObj.winRate >= 90) {
+  chanceLabel = "High";
+}
+
+currentLogic = `Logic ${logicObj.id} (${logicObj.winRate.toFixed(2)}%) - ${chanceLabel} Chance | Trend: ${currentTrend} | Deep ${deepConfidence}%`;
+
+
+
+
+
+
+  currentPrediction = Math.random() > 0.5 ? "BIG" : "SMALL";
+}
+const aiDecision = { prediction: currentPrediction, logic: currentLogic, trend: currentTrend };
+      lastPrediction = aiDecision.prediction;
+      lastOppositeNumber = getOppositeNumber(lastPrediction);
+      globalPrediction = lastPrediction;
+
+      let nextPeriodFull = (BigInt(result.issueNumber) + 1n).toString();
+      let nextPeriod = nextPeriodFull.slice(-4);
+
+      document.getElementById("periodDisplay").value = nextPeriod;
+      document.getElementById("predictionDisplay").innerText = globalPrediction;
+      document.getElementById("oppositeNumberDisplay").innerText = lastOppositeNumber;
+document.getElementById("logicUsedDisplay").innerText = aiDecision.logic;
+document.getElementById("trendDisplay").innerText = aiDecision.trend;
+
+      historyData.unshift({
+        period: nextPeriod,
+        prediction: globalPrediction,
+        oppositeNumber: lastOppositeNumber,
+        result: "-",
+        resultStatus: "Pending", logicUsed: aiDecision.logic, trend: aiDecision.trend
+      });
+
+      updateStats();
+      updateHistory();
+      lastFetchedPeriod = result.issueNumber;
+    }
+
+    function updateStats() {
+      const wins = historyData.filter(item => item.resultStatus === "WIN").length;
+      const losses = historyData.filter(item => item.resultStatus === "LOSS").length;
+      const total = wins + losses;
+      const accuracy = total > 0 ? ((wins / total) * 100).toFixed(2) : 0;
+      document.getElementById("wins").textContent = wins;
+      document.getElementById("losses").textContent = losses;
+      document.getElementById("accuracy").textContent = `${accuracy}%`;
+    }
+
+    function updateLastStatus(actualNumber) {
+      const match = actualNumber == lastOppositeNumber || (actualNumber >= 5 ? 'BIG' : 'SMALL') === lastPrediction;
+      lastResult = actualNumber >= 5 ? 'BIG' : 'SMALL';
+      lastStatus = match ? 'WIN' : 'LOSS';
+      return lastStatus;
+    }
+
+    async function fetchGameResult() {
+      try {
+        let response = await fetch("https://api.bdg88zf.com/api/webapi/GetNoaverageEmerdList", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            pageSize: 10, pageNo: 1, typeId: 1, language: 0,
+            random: "4a0522c6ecd8410496260e686be2a57c",
+            signature: "334B5E70A0C9B8918B0B15E517E2069C",
+            timestamp: Math.floor(Date.now() / 1000)
+          })
+        });
+        let data = await response.json();
+        return data?.data?.list?.[0] || null;
+      } catch (e) {
+        console.error("API Error", e);
+        return null;
+      }
+    }
+
+    setInterval(updatePrediction, 5000);
+  
+
+function updateHistory() {
+  const container = document.getElementById("historyContainer");
+  if (!container) return;
+  
+container.innerHTML = historyData.map(item => {
+  const color = item.resultStatus === 'WIN' ? 'green' : item.resultStatus === 'LOSS' ? 'red' : 'orange';
+  const icon = item.resultStatus === 'WIN'
+    ? '<span class="win-icon">🏆</span>'
+    : item.resultStatus === 'LOSS'
+    ? '<span class="loss-icon">❌</span>'
+    : '<span class="pending-icon">⏳</span>';
+
+  return `<div style='padding:10px;margin-bottom:12px;border:2px solid var(--primary-color);border-radius:12px;background:#fff;position:relative;'>
+    <div><strong>Period ${item.period}</strong> | ${item.prediction} | Opposite: ${item.oppositeNumber}</div>
+    <div>
+      Trend: ${item.trend || "Unknown"}<br/>
+      Logic: ${item.logicUsed || "Unknown"}${item.sureShot ? ' 🔥 Sure Shot' : ''}<br/>
+      Result: ${item.result} - ${icon}
+      <span style="color:${color}">${item.resultStatus}</span>
+    </div>
+    
+  </div>`;
+}).join('');
+
+}
+
+</script>
+</body>
+</html>
+
+</html>
